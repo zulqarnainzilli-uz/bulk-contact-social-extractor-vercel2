@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bulk Contact & Social Extractor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #FF6B35;
+      --orange-dark: #E85A2B;
+      --ink: #1A1A2E;
+      --soft: #4A4A68;
+      --soft-bg: #FFF5F0;
+    }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: var(--ink); }
+    .glass { background: rgba(255,255,255,0.78); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.55); }
+    .orange-grad { background: linear-gradient(135deg, #FF6B35 0%, #E85A2B 100%); }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .progress-bar { transition: width .3s ease; }
+    .custom-scrollbar::-webkit-scrollbar { width: 8px; height: 8px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #FF6B35; border-radius: 999px; }
+    @keyframes float {
+      0%,100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-18px) rotate(2deg); }
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden text-[#1A1A2E]">
+
+  <header class="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#FFF5F0]">
+    <div class="absolute top-20 left-10 w-32 h-32 orange-grad opacity-10 rounded-3xl animate-float"></div>
+    <div class="absolute bottom-20 right-10 w-48 h-48 orange-grad opacity-10 rounded-full animate-float" style="animation-delay:2s"></div>
+
+    <div class="container mx-auto px-6 relative z-10 text-center py-20">
+      <div class="inline-block px-4 py-2 bg-orange-100 rounded-full text-orange-600 text-sm font-semibold mb-6">
+        🚀 Advanced Bulk Website Data Extractor
+      </div>
+
+      <h1 class="text-5xl md:text-8xl font-extrabold mb-6 tracking-tight">
+        Contact & Social <span class="text-[#FF6B35]">Extractor</span>
+      </h1>
+
+      <p class="text-lg md:text-xl text-[#4A4A68] max-w-3xl mx-auto mb-10 leading-relaxed">
+        Bulk URLs dalo aur website homepage, contact, about aur support pages se emails, real phone numbers aur social links extract karo.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-4 mb-10">
+        <span class="px-4 py-2 bg-white rounded-full shadow-md text-sm font-medium">✓ Faster Scanning</span>
+        <span class="px-4 py-2 bg-white rounded-full shadow-md text-sm font-medium">✓ Multi-Page Scan</span>
+        <span class="px-4 py-2 bg-white rounded-full shadow-md text-sm font-medium">✓ Real Intl Numbers</span>
+        <span class="px-4 py-2 bg-white rounded-full shadow-md text-sm font-medium">✓ Social Links Finder</span>
+      </div>
+
+      <a href="#tool" class="orange-grad text-white px-10 py-4 rounded-full font-bold text-lg shadow-2xl hover:scale-105 transition-transform inline-block">
+        Start Extracting Data
+      </a>
+    </div>
+  </header>
+
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="text-center mb-14">
+        <h2 class="text-4xl font-black mb-4">How To Use</h2>
+        <p class="text-gray-500 max-w-2xl mx-auto">URLs paste karein, extractor run karein, results review karein, phir CSV download kar lein.</p>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="bg-[#FFF8F5] border border-orange-100 rounded-[2rem] p-6 shadow-lg">
+          <div class="w-12 h-12 orange-grad rounded-2xl flex items-center justify-center text-white font-black mb-4">01</div>
+          <h3 class="font-bold text-xl mb-2">Paste URLs</h3>
+          <p class="text-sm text-gray-600 leading-6">Bulk website URLs ek sath textarea me paste karein.</p>
+        </div>
+        <div class="bg-[#FFF8F5] border border-orange-100 rounded-[2rem] p-6 shadow-lg">
+          <div class="w-12 h-12 orange-grad rounded-2xl flex items-center justify-center text-white font-black mb-4">02</div>
+          <h3 class="font-bold text-xl mb-2">Run Extractor</h3>
+          <p class="text-sm text-gray-600 leading-6">Tool parallel scan karta hai taake speed better ho.</p>
+        </div>
+        <div class="bg-[#FFF8F5] border border-orange-100 rounded-[2rem] p-6 shadow-lg">
+          <div class="w-12 h-12 orange-grad rounded-2xl flex items-center justify-center text-white font-black mb-4">03</div>
+          <h3 class="font-bold text-xl mb-2">Review Results</h3>
+          <p class="text-sm text-gray-600 leading-6">Emails, phones aur social links preview aur table me mil jayenge.</p>
+        </div>
+        <div class="bg-[#FFF8F5] border border-orange-100 rounded-[2rem] p-6 shadow-lg">
+          <div class="w-12 h-12 orange-grad rounded-2xl flex items-center justify-center text-white font-black mb-4">04</div>
+          <h3 class="font-bold text-xl mb-2">Download CSV</h3>
+          <p class="text-sm text-gray-600 leading-6">Full results CSV me export karein.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tool" class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-7xl mx-auto glass rounded-[2.5rem] p-8 md:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-orange-100">
+
+        <div id="setup-phase">
+          <h2 class="text-3xl md:text-4xl font-black mb-8 flex items-center gap-3">
+            <span class="w-12 h-12 orange-grad rounded-xl flex items-center justify-center text-white text-base">01</span>
+            Bulk Contact & Social Extractor
+          </h2>
+
+          <div class="grid xl:grid-cols-[1.05fr_.95fr] gap-8 mb-8">
+            <div class="space-y-6">
+              <div class="relative">
+                <textarea id="urlInput" class="w-full h-80 p-6 rounded-[2rem] border border-gray-200 focus:ring-2 focus:ring-[#FF6B35] focus:outline-none transition-all resize-none" placeholder="Enter bulk URLs here...
+openai.com
+github.com
+shopify.com"></textarea>
+                <div class="absolute bottom-5 left-6 text-xs text-gray-400" id="urlCount">0 URLs</div>
+                <button id="demoBtn" class="absolute bottom-4 right-4 px-4 py-2 orange-grad text-white rounded-xl text-sm font-bold shadow-lg hover:opacity-90 transition-opacity">Load Demo</button>
+              </div>
+
+              <button id="startBtn" class="w-full orange-grad text-white py-5 rounded-2xl font-bold text-xl shadow-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-3">
+                <span>🔎</span> Start Bulk Extraction
+              </button>
+            </div>
+
+            <div class="space-y-6">
+              <div class="bg-white rounded-[2rem] p-6 border border-gray-200">
+                <h3 class="text-xl font-black mb-5">What Will Be Extracted?</h3>
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="p-4 border border-gray-200 rounded-2xl">Clean Emails</div>
+                  <div class="p-4 border border-gray-200 rounded-2xl">Real Intl Numbers</div>
+                  <div class="p-4 border border-gray-200 rounded-2xl">Facebook</div>
+                  <div class="p-4 border border-gray-200 rounded-2xl">Instagram</div>
+                  <div class="p-4 border border-gray-200 rounded-2xl">LinkedIn</div>
+                  <div class="p-4 border border-gray-200 rounded-2xl">Twitter / X</div>
+                  <div class="p-4 border border-gray-200 rounded-2xl">YouTube</div>
+                  <div class="p-4 border border-gray-200 rounded-2xl">WhatsApp / Telegram</div>
+                </div>
+              </div>
+
+              <div class="bg-[#FFF8F5] rounded-[2rem] border border-orange-100 p-6">
+                <h3 class="text-xl font-black mb-4">Important Notes</h3>
+                <ul class="space-y-3 text-sm text-gray-600 leading-6">
+                  <li>• Free hosting ke liye optimized parallel requests use ki gayi hain.</li>
+                  <li>• Static HTML websites par best kaam karega.</li>
+                  <li>• JS-rendered ya protected websites me limited results aa sakte hain.</li>
+                  <li>• Duplicate URLs automatic remove ho jayengi.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="loading-phase" class="hidden py-20 text-center">
+          <div class="max-w-2xl mx-auto mb-8">
+            <div class="flex justify-between text-sm font-medium mb-2">
+              <span class="text-[#FF6B35]">Extracting...</span>
+              <span id="progressText">0%</span>
+            </div>
+            <div class="w-full h-4 bg-gray-200 rounded-full overflow-hidden">
+              <div id="progressBar" class="h-full orange-grad progress-bar" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="inline-block w-24 h-24 border-4 border-orange-500 border-t-transparent rounded-full animate-spin mb-6"></div>
+          <h3 class="text-3xl font-black text-[#FF6B35]">Website Data Extraction In Progress...</h3>
+          <p class="text-gray-500 mt-2" id="loadingText">Fetching website content...</p>
+        </div>
+
+        <div id="results-phase" class="hidden">
+          <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+            <div>
+              <h3 class="text-3xl font-black">Extraction Results</h3>
+              <p class="text-gray-500 mt-2">Emails, numbers aur social links sab ek jagah.</p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <button onclick="downloadCsv()" class="px-4 py-3 orange-grad text-white rounded-2xl text-sm font-black hover:opacity-90 transition-opacity">
+                Download Full CSV
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div class="bg-orange-50 p-5 rounded-2xl text-center">
+              <div class="text-3xl font-black text-[#FF6B35]" id="statTotalUrls">0</div>
+              <div class="text-sm text-orange-700 font-medium">URLs</div>
+            </div>
+            <div class="bg-green-50 p-5 rounded-2xl text-center">
+              <div class="text-3xl font-black text-green-600" id="statTotalEmails">0</div>
+              <div class="text-sm text-green-700 font-medium">Emails Found</div>
+            </div>
+            <div class="bg-blue-50 p-5 rounded-2xl text-center">
+              <div class="text-3xl font-black text-blue-600" id="statTotalPhones">0</div>
+              <div class="text-sm text-blue-700 font-medium">Phones Found</div>
+            </div>
+            <div class="bg-purple-50 p-5 rounded-2xl text-center">
+              <div class="text-3xl font-black text-purple-600" id="statTotalSocials">0</div>
+              <div class="text-sm text-purple-700 font-medium">Social Links</div>
+            </div>
+          </div>
+
+          <div class="grid lg:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white border border-gray-200 rounded-[2rem] p-6">
+              <h4 class="text-xl font-black mb-4">Emails Preview</h4>
+              <div id="emailsPreview" class="text-sm text-gray-600 max-h-72 overflow-y-auto custom-scrollbar space-y-2"></div>
+            </div>
+            <div class="bg-white border border-gray-200 rounded-[2rem] p-6">
+              <h4 class="text-xl font-black mb-4">Phones Preview</h4>
+              <div id="phonesPreview" class="text-sm text-gray-600 max-h-72 overflow-y-auto custom-scrollbar space-y-2"></div>
+            </div>
+            <div class="bg-white border border-gray-200 rounded-[2rem] p-6">
+              <h4 class="text-xl font-black mb-4">Social Links Preview</h4>
+              <div id="socialsPreview" class="text-sm text-gray-600 max-h-72 overflow-y-auto custom-scrollbar space-y-2"></div>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto custom-scrollbar rounded-[2rem] border border-gray-200">
+            <table class="w-full text-left border-collapse min-w-[1500px]">
+              <thead>
+                <tr class="bg-gray-50 text-gray-600 text-sm uppercase">
+                  <th class="p-4 border-b">Website</th>
+                  <th class="p-4 border-b">Status</th>
+                  <th class="p-4 border-b">Title</th>
+                  <th class="p-4 border-b">Emails</th>
+                  <th class="p-4 border-b">Phones</th>
+                  <th class="p-4 border-b">Facebook</th>
+                  <th class="p-4 border-b">Instagram</th>
+                  <th class="p-4 border-b">LinkedIn</th>
+                  <th class="p-4 border-b">Twitter/X</th>
+                  <th class="p-4 border-b">YouTube</th>
+                  <th class="p-4 border-b">Pages Crawled</th>
+                </tr>
+              </thead>
+              <tbody id="resultsBody" class="text-sm"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    let appResults = [];
+
+    const urlInput = document.getElementById('urlInput');
+    const urlCount = document.getElementById('urlCount');
+    const startBtn = document.getElementById('startBtn');
+    const demoBtn = document.getElementById('demoBtn');
+
+    urlInput.addEventListener('input', updateCount);
+
+    demoBtn.addEventListener('click', () => {
+      urlInput.value = [
+        'openai.com',
+        'github.com',
+        'shopify.com'
+      ].join('\n');
+      updateCount();
+    });
+
+    startBtn.addEventListener('click', startExtraction);
+
+    function updateCount() {
+      const urls = normalizeInput(urlInput.value);
+      urlCount.textContent = `${urls.length} URL${urls.length !== 1 ? 's' : ''}`;
+    }
+
+    function normalizeInput(text) {
+      return String(text || '')
+        .split(/[\n,;\t\r ]+/)
+        .map(v => v.trim())
+        .filter(Boolean);
+    }
+
+    async function startExtraction() {
+      const urls = normalizeInput(urlInput.value);
+
+      if (!urls.length) {
+        alert('Please enter at least one website URL.');
+        return;
+      }
+
+      document.getElementById('setup-phase').classList.add('hidden');
+      document.getElementById('results-phase').classList.add('hidden');
+      document.getElementById('loading-phase').classList.remove('hidden');
+
+      animateProgress();
+
+      try {
+        const response = await fetch('/api/extract', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ rawInput: urlInput.value })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+          throw new Error(data.message || 'Unknown error');
+        }
+
+        handleSuccess(data);
+      } catch (error) {
+        handleFailure(error.message || String(error));
+      }
+    }
+
+    function animateProgress() {
+      const progressBar = document.getElementById('progressBar');
+      const progressText = document.getElementById('progressText');
+      const loadingText = document.getElementById('loadingText');
+
+      const loadingSteps = [
+        'Normalizing URLs...',
+        'Scanning websites in parallel...',
+        'Checking contact/about/support pages...',
+        'Extracting emails...',
+        'Filtering real phone numbers...',
+        'Finding social links...'
+      ];
+
+      let value = 0;
+      let i = 0;
+
+      window.__extractorInterval = setInterval(() => {
+        value = Math.min(value + Math.random() * 10, 92);
+        progressBar.style.width = value + '%';
+        progressText.textContent = Math.round(value) + '%';
+        loadingText.textContent = loadingSteps[i % loadingSteps.length];
+        i++;
+      }, 500);
+    }
+
+    function finishProgress() {
+      clearInterval(window.__extractorInterval);
+      document.getElementById('progressBar').style.width = '100%';
+      document.getElementById('progressText').textContent = '100%';
+    }
+
+    function handleSuccess(response) {
+      finishProgress();
+
+      appResults = response.results || [];
+      renderResults(appResults);
+
+      document.getElementById('loading-phase').classList.add('hidden');
+      document.getElementById('results-phase').classList.remove('hidden');
+    }
+
+    function handleFailure(error) {
+      clearInterval(window.__extractorInterval);
+      document.getElementById('loading-phase').classList.add('hidden');
+      document.getElementById('setup-phase').classList.remove('hidden');
+      alert('Extraction failed: ' + error);
+    }
+
+    function renderResults(results) {
+      const totalEmails = results.reduce((sum, row) => sum + (row.emailCount || 0), 0);
+      const totalPhones = results.reduce((sum, row) => sum + (row.phoneCount || 0), 0);
+      const totalSocials = results.reduce((sum, row) => sum + (row.socialCount || 0), 0);
+
+      document.getElementById('statTotalUrls').textContent = results.length;
+      document.getElementById('statTotalEmails').textContent = totalEmails;
+      document.getElementById('statTotalPhones').textContent = totalPhones;
+      document.getElementById('statTotalSocials').textContent = totalSocials;
+
+      renderPreview('emailsPreview', uniqueFlat(results.map(r => r.emails || [])));
+      renderPreview('phonesPreview', uniqueFlat(results.map(r => r.phones || [])));
+      renderPreview('socialsPreview', uniqueFlat(results.map(r => r.allSocials || [])));
+
+      document.getElementById('resultsBody').innerHTML = results.map(row => `
+        <tr class="hover:bg-orange-50 transition-colors align-top">
+          <td class="p-4 border-b font-semibold break-all">${escapeHtml(row.url || '')}</td>
+          <td class="p-4 border-b">${renderStatus(row.status)}</td>
+          <td class="p-4 border-b text-gray-600">${escapeHtml(row.title || '')}</td>
+          <td class="p-4 border-b text-gray-600">${renderCellList(row.emails)}</td>
+          <td class="p-4 border-b text-gray-600">${renderCellList(row.phones)}</td>
+          <td class="p-4 border-b text-gray-600">${renderCellList(row.facebook)}</td>
+          <td class="p-4 border-b text-gray-600">${renderCellList(row.instagram)}</td>
+          <td class="p-4 border-b text-gray-600">${renderCellList(row.linkedin)}</td>
+          <td class="p-4 border-b text-gray-600">${renderCellList(row.twitter)}</td>
+          <td class="p-4 border-b text-gray-600">${renderCellList(row.youtube)}</td>
+          <td class="p-4 border-b text-gray-600">${renderCellList(row.crawledPages)}</td>
+        </tr>
+      `).join('');
+    }
+
+    function renderStatus(status) {
+      const ok = String(status || '').toLowerCase() === 'success';
+      return ok
+        ? '<span class="px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700">Success</span>'
+        : '<span class="px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700">Failed</span>';
+    }
+
+    function renderCellList(items) {
+      if (!items || !items.length) return '<span class="text-gray-300">—</span>';
+      return items.map(item => `<div class="mb-2 break-all">${escapeHtml(item)}</div>`).join('');
+    }
+
+    function renderPreview(targetId, items) {
+      const el = document.getElementById(targetId);
+      if (!items.length) {
+        el.innerHTML = '<div class="text-gray-400">Nothing found.</div>';
+        return;
+      }
+      el.innerHTML = items.slice(0, 100).map(item => `
+        <div class="bg-gray-50 rounded-2xl px-4 py-3 break-all">${escapeHtml(item)}</div>
+      `).join('');
+    }
+
+    function uniqueFlat(arrays) {
+      const out = [];
+      const seen = new Set();
+
+      arrays.flat().forEach(item => {
+        const key = String(item || '').trim().toLowerCase();
+        if (key && !seen.has(key)) {
+          seen.add(key);
+          out.push(String(item).trim());
+        }
+      });
+
+      return out;
+    }
+
+    function escapeHtml(str) {
+      return String(str || '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+    }
+
+    function downloadCsv() {
+      if (!appResults.length) {
+        alert('No results available for export.');
+        return;
+      }
+
+      const headers = [
+        'URL','Status','Title','Emails','Phones','Facebook','Instagram',
+        'LinkedIn','TwitterX','YouTube','TikTok','Pinterest','WhatsApp',
+        'Telegram','AllSocials','PagesCrawled','Error'
+      ];
+
+      const rows = appResults.map(r => [
+        r.url || '',
+        r.status || '',
+        r.title || '',
+        (r.emails || []).join(' | '),
+        (r.phones || []).join(' | '),
+        (r.facebook || []).join(' | '),
+        (r.instagram || []).join(' | '),
+        (r.linkedin || []).join(' | '),
+        (r.twitter || []).join(' | '),
+        (r.youtube || []).join(' | '),
+        (r.tiktok || []).join(' | '),
+        (r.pinterest || []).join(' | '),
+        (r.whatsapp || []).join(' | '),
+        (r.telegram || []).join(' | '),
+        (r.allSocials || []).join(' | '),
+        (r.crawledPages || []).join(' | '),
+        r.error || ''
+      ]);
+
+      const csv = [headers, ...rows]
+        .map(row => row.map(cell => `"${String(cell).replaceAll('"','""')}"`).join(','))
+        .join('\n');
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'bulk-contact-social-extractor-optimized.csv';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(link.href);
+    }
+
+    updateCount();
+  </script>
+</body>
+</html>
